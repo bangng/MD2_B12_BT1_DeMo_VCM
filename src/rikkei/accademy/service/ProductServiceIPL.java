@@ -33,4 +33,29 @@ public class ProductServiceIPL implements IProductService{
         return listProduct;
     }
 
+    @Override
+    public List<Product> search(String name) {
+        List<Product> products = new ArrayList<>();
+        for (Product product:
+             listProduct) {
+            if (product.getName().equals(name)){
+                products.add(product);
+            }
+        }
+        return products;
+    }
+
+    @Override
+    public void remove(int id) {
+        listProduct.remove(id -1);
+
+    }
+
+    @Override
+    public void edit(int id, String name, int price) {
+        listProduct.get(id -1).setName(name);
+        listProduct.get(id - 1).setPrice(price);
+
+    }
+
 }

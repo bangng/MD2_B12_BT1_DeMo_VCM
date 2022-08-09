@@ -10,4 +10,11 @@ public interface IProductService {
     List<Product> sortByPrice();
 
 
+
+    List<Product> search(String name);
+
+    void remove(int id);
+
+    void edit(int id, String name, int price);
+
 }

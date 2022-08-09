@@ -11,12 +11,23 @@ public class ProductController {
    public List<Product> showProductList(){
        return iProductService.findAll();
    }
-//   public void createProduct(String productName,int price){
-//       iProductService.save(new Product(ProductServiceIPL.listProduct.size() + 1,));
-//   }
+   public void createProduct(String name,int price){
+       iProductService.save(new Product(showProductList().size() +1,name, price ));
+   }
     public List<Product> sortProduct(){
        return iProductService.sortByPrice();
 
 
     }
+    public void editProduct(int id, String name, int price){
+      iProductService.edit(id,name,price) ;
+    }
+    public void deleteProduct(int id) {
+        iProductService.remove(id);
+    }
+
+    public List<Product> searchProduct(String name) {
+        return iProductService.search(name);
+    }
+
 }
